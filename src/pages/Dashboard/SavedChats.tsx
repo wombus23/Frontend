@@ -17,7 +17,9 @@ const SavedChats = () => {
   useEffect(() => {
     const fetchSavedChats = async () => {
       try {
-        const response = await fetch("https://qanoonbots-652bb77e7052.herokuapp.com/api/get_saved_chats/");
+        const response = await fetch(
+          "https://qanoonbots-652bb77e7052.herokuapp.com/api/get_saved_chats/"
+        );
         if (response.ok) {
           const data: Chat[] = await response.json();
           setChats(data);
@@ -35,20 +37,30 @@ const SavedChats = () => {
   return (
     <DashboardLayout>
       <div className="w-full h-[100dvh] p-4 relative">
-        <header className="h-[40px] flex items-center p-4 absolute top-0 left-0 bg-neutral-800/80 backdrop-blur-lg w-full">
-          <h1 className="font-light text-[16px] text-neutral-500">Saved Chats</h1>
-        </header>
-        <div className="saved-chats pt-[60px] px-2">
+        <div className="saved-chats flex flex-col gap-2 pe-2 max-h-[calc(100dvh-40px)] overflow-y-scroll">
           {chats.length > 0 ? (
             chats.map((chat, index) => (
-              <div key={index} className="chat bg-[#1E1E1E] p-4 border-[1px] border-white/20 md:border-white rounded-xl mb-4">
+              <div
+                key={index}
+                className="chat bg-[#1E1E1E] p-4 border-[1px] border-white/20 md:border-white rounded-xl mb-4"
+              >
                 <div className="chat-header text-white font-bold">
                   Chat from {new Date(chat.created_at).toLocaleString()}
                 </div>
                 <div className="chat-messages mt-2 space-y-2">
                   {chat.messages.map((message, idx) => (
-                    <div key={idx} className={`message ${message.sender === "bot" ? "text-blue-400" : "text-green-400"}`}>
-                      <strong>{message.sender === "bot" ? "Bot" : "You"}:</strong> {message.text}
+                    <div
+                      key={idx}
+                      className={`message ${
+                        message.sender === "bot"
+                          ? "text-blue-400"
+                          : "text-green-400"
+                      }`}
+                    >
+                      <strong>
+                        {message.sender === "bot" ? "Bot" : "You"}:
+                      </strong>{" "}
+                      {message.text}
                     </div>
                   ))}
                 </div>

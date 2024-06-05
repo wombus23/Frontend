@@ -132,9 +132,6 @@ const NewChat = () => {
   return (
     <DashboardLayout>
       <div className="w-full h-[100dvh] py-4 px-2 relative flex flex-col items-center">
-        <header className="h-[40px] flex items-center p-4 absolute top-0 left-0 bg-neutral-800/80 backdrop-blur-lg w-full">
-          <h1 className="font-light text-[16px] text-neutral-500">New Chat</h1>
-        </header>
         <div className="chat-area flex flex-col h-[calc(100%-72px)] w-full max-w-[640px] mx-auto gap-4 pt-[40px] overflow-y-scroll px-2">
           {boxVisible && (
             <div className="box bg-[#1E1E1E] p-4 border-[1px] border-white/20 md:border-white rounded-xl">

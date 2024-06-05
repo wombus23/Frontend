@@ -4,9 +4,11 @@ const Chats = () => {
   return (
     <DashboardLayout>
       <div className="w-full h-[100dvh] p-4 relative">
-        <header className="h-[40px] flex items-center p-4 absolute top-0 left-0 bg-neutral-800/80 backdrop-blur-lg w-full">
-          <h1 className="font-light text-[16px] text-neutral-500">Chats</h1>
-        </header>
+        <div className="list flex flex-col gap-2 pe-2 max-h-[calc(100dvh-40px)] overflow-y-scroll">
+          {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map(() => (
+            <div className="box w-full min-h-[200px] bg-neutral-500/10 rounded-lg"></div>
+          ))}
+        </div>
       </div>
     </DashboardLayout>
   );
